@@ -1,0 +1,4 @@
+{
+	"original_instruction": "You are evaluating two feedback texts (A and B) written for the same story. Assess which feedback is better for the story. For this, evaluate whether the feedback is specific to the story, whether following it would improve it, and whether it successfully addresses the story's biggest issue. Return only JSON with keys: winner (A|B|Tie), confidence (0..1), rationale.",
+	"assume_all_original": true
+}
