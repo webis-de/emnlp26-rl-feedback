@@ -11,18 +11,21 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / 'training'))
 from scorer_core import run_evaluation
 
+DATA_DIR = Path(__file__).resolve().parents[2] / 'data' / 'storyfeedback'
+MODEL_DIR = Path(__file__).resolve().parents[2] / 'models_final'
+
 
 
 def main():
     run_evaluation({
-        'train_data': '../../data/stories/human_ratings_train.jsonl',
-        'test_data': '../../data/stories/human_ratings_test.jsonl',
+        'train_data': str(DATA_DIR / 'human_ratings_train.jsonl'),
+        'test_data': str(DATA_DIR / 'human_ratings_test.jsonl'),
         'tasks': ['correctness', 'error-detection', 'specificity'],
-        'get_model_path': lambda task_dir: f'../../models_final/{task_dir}',
+        'get_model_path': lambda task_dir: str(MODEL_DIR / task_dir),
         'check_path_exists': False,
         'fbonly_override': False,
-        'csv_filename': '../../data/scorer_eval/model_metrics_comparison.csv',
-        'tex_filename': '../../data/scorer_eval/model_metrics_table.tex',
+        'csv_filename': str(DATA_DIR.parent / 'scorer_eval' / 'model_metrics_comparison.csv'),
+        'tex_filename': str(DATA_DIR.parent / 'scorer_eval' / 'model_metrics_table.tex'),
         'plot_prefix': '',
         'single_task_label': 'ModernBERT',
     })

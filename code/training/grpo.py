@@ -47,15 +47,15 @@ logger = logging.getLogger(__name__)
 
 
 DATASET_SPLITS = {
-    "stories": ("stories/stories_train.jsonl", "stories/stories_dev.jsonl"),
-    "stories_us": ("stories/stories_train_us.jsonl", "stories/stories_dev.jsonl"),
+    "stories": ("storyfeedback/stories_train.jsonl", "storyfeedback/stories_dev.jsonl"),
+    "stories_us": ("storyfeedback/stories_train_us.jsonl", "storyfeedback/stories_dev.jsonl"),
     "storal_matched": (
-        "storal_matched/storal_en_train_stories.jsonl",
-        "storal_matched/storal_en_valid_stories.jsonl",
+        "storal/storal_en_train_stories.jsonl",
+        "storal/storal_en_valid_stories.jsonl",
     ),
     "writingprompts_matched": (
-        "writingprompts_matched/writingprompts_train_stories.jsonl",
-        "writingprompts_matched/writingprompts_validation_stories.jsonl",
+        "writingprompts/writingprompts_train_stories.jsonl",
+        "writingprompts/writingprompts_validation_stories.jsonl",
     ),
     "comb": ("comb/comb_train.jsonl", "comb/comb_dev.jsonl"),
     "leaf_ds": ("leaf_ds/leaf_ds_train.jsonl", "leaf_ds/leaf_ds_dev.jsonl"),

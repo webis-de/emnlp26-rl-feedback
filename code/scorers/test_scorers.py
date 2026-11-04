@@ -157,7 +157,7 @@ def main():
     scorer = FeedbackQualityScorer(device)
     
     # Load test data
-    test_file = '../../data/stories/human_ratings_test.jsonl'
+    test_file = str(Path(__file__).resolve().parents[2] / 'data' / 'storyfeedback' / 'human_ratings_test.jsonl')
     print(f"\nLoading test data from {test_file}...")
     test_data = load_test_data(test_file)
     print(f"Loaded {len(test_data)} test examples")

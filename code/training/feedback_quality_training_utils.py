@@ -299,11 +299,12 @@ def get_default_config(model_name: Optional[str] = None, max_length: Optional[in
     """Get default training configuration."""
     resolved_model_name = model_name or 'answerdotai/ModernBERT-large'
     resolved_max_length = max_length if max_length is not None else 1024
+    data_dir = Path(__file__).resolve().parents[2] / 'data' / 'storyfeedback'
 
     return {
-        'train_file': '../../data/stories/human_ratings_train.jsonl',
-        'dev_file': '../../data/stories/human_ratings_dev.jsonl',
-        'test_file': '../../data/stories/human_ratings_test.jsonl',
+        'train_file': str(data_dir / 'human_ratings_train.jsonl'),
+        'dev_file': str(data_dir / 'human_ratings_dev.jsonl'),
+        'test_file': str(data_dir / 'human_ratings_test.jsonl'),
         'model_name': resolved_model_name,
         'max_length': resolved_max_length,
         'num_workers': 4,

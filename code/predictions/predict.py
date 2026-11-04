@@ -13,9 +13,9 @@ from transformers import AutoTokenizer
 from peft import LoraConfig, TaskType
 from trl import GRPOConfig, GRPOTrainer
 
-# Resolve key paths
+# Resolve key paths. The project root contains both `code/` and `data/`.
 BASE_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = BASE_DIR.parent
+PROJECT_ROOT = BASE_DIR.parents[2]
 ROOT_PARENT = PROJECT_ROOT.parent
 CODE_DIR = PROJECT_ROOT / "code"
 
@@ -35,9 +35,8 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
 )
 logger = logging.getLogger(__name__)
-PROJECT_ROOT = BASE_DIR.parent
 TRANSFORMER_ROOT = PROJECT_ROOT.parent / "transformer-models"
-DEFAULT_DATA_FILE = (PROJECT_ROOT / "data" / "stories_dev.jsonl").resolve()
+DEFAULT_DATA_FILE = (PROJECT_ROOT / "data" / "storyfeedback" / "stories_dev.jsonl").resolve()
 TEMP_OUTPUT_DIR = (BASE_DIR / "outputs" / "temp_output").resolve()
 TEMP_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 

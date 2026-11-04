@@ -29,8 +29,15 @@ from feedback_quality_training_utils import (
 # Tasks
 MODERNBERT_TASKS = ['correctness', 'error-detection', 'specificity']
 
-# Default base directory for trained models
-MODELS_BASE_DIR = Path('/storys/models_final')
+# Default base directories for trained models. They can be overridden without
+# editing the code, which is useful when running from a submission checkout.
+MODELS_BASE_DIR = Path(os.environ.get('STORYS_MODELS_DIR', '/storys/models_final'))
+MODELS_FBONLY_BASE_DIR = Path(
+    os.environ.get('STORYS_FBONLY_MODELS_DIR', '/storys/models_fbonly_final')
+)
+MODELS_QWENRM_BASE_DIR = Path(
+    os.environ.get('STORYS_QWENRM_MODELS_DIR', '/storys/models_qwen')
+)
 
 
 # Set seed for reproducibility
